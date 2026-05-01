@@ -30,7 +30,7 @@ public:
 	
 	Component_Transform() 
 		: position(0.0f, 0.0f), scale(1.0f, 1.0f), rotation(0.0f), origin(Origin::TopLeft) {}
-	Component_Transform(sf::Vector2f pos, sf::Vector2f scl, float rot, Origin orig = Origin::TopLeft)
+	Component_Transform(sf::Vector2f pos, sf::Vector2f scl, float rot = 0.0f, Origin orig = Origin::TopLeft)
 		: position(pos), scale(scl), rotation(rot), origin(orig) {}
 };
 
@@ -47,10 +47,11 @@ public:
 	sf::Font* font;
 	std::string text;
 	unsigned int size;
+	sf::Text::Style style;
 	
-	Component_Text() : font(nullptr), text(""), size(12) {}
-	Component_Text(sf::Font* f, const std::string& t, unsigned int s) 
-		: font(f), text(t), size(s) {}
+	Component_Text() : font(nullptr), text(""), size(12), style(sf::Text::Regular) {}
+	Component_Text(sf::Font* f, const std::string& t, unsigned int s, sf::Text::Style st = sf::Text::Regular) 
+		: font(f), text(t), size(s), style(st) {}
 };
 
 class Component_HitBox {

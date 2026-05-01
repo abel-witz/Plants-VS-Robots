@@ -4,18 +4,18 @@
 
 class Scene_Menu : public Scene {
 private:
-	int tulipDirection = 0;
-	sf::FloatRect textBounds;
+	int m_tulipDirection = 0;
+	sf::FloatRect m_textBounds;
 
-	int currentSelection = 0;
-	bool downPressed = false;
-	bool upPressed = false;
+	int m_currentSelection = 0;
+	bool m_downPressed = false;
+	bool m_upPressed = false;
 	
-	Entity* title;
-	Entity* playButton;
-	Entity* shopButton;
-	Entity* quitButton;
-	unsigned long int nextInputTime = 0;
+	Entity* m_title;
+	Entity* m_playButton;
+	Entity* m_shopButton;
+	Entity* m_quitButton;
+	unsigned long int m_nextInputTime = 0;
 
 public:
 	Scene_Menu(GameData* gameData = nullptr);

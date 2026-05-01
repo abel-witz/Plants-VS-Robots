@@ -59,6 +59,7 @@ void Entity::draw(sf::RenderWindow& window) {
             sf::Text text(*textComponent->font);
             text.setString(textComponent->text);
             text.setCharacterSize(textComponent->size);
+            text.setStyle(textComponent->style);
 
             sf::FloatRect bounds = text.getLocalBounds();
             
