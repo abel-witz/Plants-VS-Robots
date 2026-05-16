@@ -22,9 +22,9 @@ void Scene_Play::loadLevel() {
 
 //valeurs par defaut au cas ou
     m_numCols = 9;
-    m_tileSize = 100.0f;
-    m_startX = 95.0f;
-    m_startY = 200.0f;
+    m_tileSize = 720.f / 7;
+    m_startX = m_tileSize;
+    m_startY = m_tileSize * 2;
     m_numRows = 5; 
 
  // LISTE TEMPORAIRE PR RETENIR LES PLANTES A FAIRE POP
@@ -82,6 +82,16 @@ void Scene_Play::loadLevel() {
             float py = m_startY + row * m_tileSize;
             tile->transformComponent = new Component_Transform(sf::Vector2f(px, py), sf::Vector2f(1.0f, 1.0f), 0.0f);
         }
+    }
+
+    for (int row = 0; row < 720 / m_tileSize; row++) {
+        Entity *tile = m_entityManager.create("Tile");
+        sf::Color tileColor = (row % 2 == 1) ? sf::Color(179, 90, 0) : sf::Color(204, 102, 0);
+         tile->colorComponent = new Component_Color(tileColor);
+        tile->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(m_tileSize - 2.0f, m_tileSize - 2.0f)); 
+        float px = 0;
+        float py = row * m_tileSize;
+        tile->transformComponent = new Component_Transform(sf::Vector2f(px, py), sf::Vector2f(1.0f, 1.0f), 0.0f);
     }
 
 // barre dinventaire mincraft en ba
