@@ -25,6 +25,7 @@ class Component_Transform {
 public:
 	sf::Vector2f position;
 	sf::Vector2f scale;
+	sf::Vector2f velocity;
 	float rotation;
 	Origin origin;
 	
@@ -78,4 +79,11 @@ public:
 
 	Component_Shape() : type(ShapeType::Rectangle), size(0.0f, 0.0f) {}
 	Component_Shape(ShapeType t, sf::Vector2f s) : type(t), size(s) {}
+};
+
+class Component_Health {
+public:
+    int hp; 
+    Component_Health() : hp(10) {}
+    Component_Health(int h) : hp(h) {}
 };

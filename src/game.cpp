@@ -2,6 +2,7 @@
 #include "scenes/scene_menu.hpp"
 #include "scenes/scene_levels.hpp"
 #include "scenes/scene_shop.hpp"
+#include "scenes/scene_play.hpp"
 #include <iostream>
 
 Game::Game() {
@@ -10,6 +11,7 @@ Game::Game() {
     }
     scenes["menu"] = new Scene_Menu(&gameData);
     scenes["levels"] = new Scene_Levels(&gameData);
+    scenes["play"] = new Scene_Play(&gameData);
     scenes["shop"] = new Scene_Shop(&gameData);
     activeScene = "menu";
 }

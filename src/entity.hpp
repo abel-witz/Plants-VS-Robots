@@ -13,6 +13,7 @@ public:
 	Component_HitBox* hitBoxComponent = nullptr;
 	Component_MouseEvent* mouseEventComponent = nullptr;
 	Component_Shape* shapeComponent = nullptr;
+	Component_Health* healthComponent = nullptr;
 	
 	Entity(std::string t);
 	void draw(sf::RenderWindow& window);

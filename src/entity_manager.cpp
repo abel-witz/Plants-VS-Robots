@@ -1,6 +1,7 @@
 #include "entity.hpp"
 #include <string>
 #include "entity_manager.hpp"
+#include <algorithm>
 
 bool isMarkedForDeletion(Entity* entity) {
     return entity == nullptr || !entity->isActive();

@@ -1,0 +1,3 @@
+ROWS 1
+PLANT 0 0 0 //tulipe (0) tout à gauche du plateau (colonne 0) et tout en haut (ligne 0)
+WAVE 0 1 0 0

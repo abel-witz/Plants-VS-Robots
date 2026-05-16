@@ -12,7 +12,7 @@ Scene_Shop::Scene_Shop(GameData* gameData) : Scene(gameData) {
     Entity* background = m_entityManager.create("Background");
     background->colorComponent = new Component_Color(sf::Color(255, 255, 255));
     background->transformComponent = new Component_Transform(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1.0f, 1.0f), 0.0f);
-    background->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(640.0f, 480.0f));
+    background->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(1280.0f, 720.0f));
 }
 
 void Scene_Shop::update() {

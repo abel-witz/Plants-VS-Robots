@@ -6,7 +6,7 @@
 
 int main()
 {
-	sf::RenderWindow window( sf::VideoMode( { 640, 480 } ), "PLANTS VS ROBOTS", sf::Style::Close | sf::Style::Titlebar);
+	sf::RenderWindow window( sf::VideoMode( { 1280, 720 } ), "PLANTS VS ROBOTS", sf::Style::Close | sf::Style::Titlebar);
 	window.setFramerateLimit(60);
 	Game game;
 
