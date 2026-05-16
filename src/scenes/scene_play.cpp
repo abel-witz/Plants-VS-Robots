@@ -254,6 +254,11 @@ void Scene_Play::update() {
 
         if (entity->transformComponent) {
             entity->transformComponent->position += entity->transformComponent->velocity;
+
+            if (entity->getTag() == "Robot" && entity->transformComponent->position.x < m_tileSize / 2) {
+                entity->transformComponent->velocity = sf::Vector2f(0,0);
+                entity->transformComponent->position.x = m_tileSize / 2;
+            }
             
             if (entity->getTag() == "Projectile" && entity->transformComponent->position.x > 1280.0f) {
                 entity->destroy();
