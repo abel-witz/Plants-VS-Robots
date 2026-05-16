@@ -109,8 +109,8 @@ void Scene_Play::spawnPlantGrid(int gridX, int gridY) {
     // on check si on est pas en deor
     if (gridX < 0 || gridX >= m_numCols || gridY < 0 || gridY >= m_numRows) return;
     
-    float px = m_startX + gridX * m_tileSize;
-    float py = m_startY + gridY * m_tileSize;
+    float px = m_startX + gridX * m_tileSize + m_tileSize / 2;
+    float py = m_startY + gridY * m_tileSize + m_tileSize / 2;
     
     spawnPlant(px, py);
 }
@@ -120,7 +120,7 @@ void Scene_Play::spawnRobotRow(int type, int row) {
     
 // spawn tou a droite du screen
     float px = 1280.0f; 
-    float py = m_startY + row * m_tileSize;
+    float py = m_startY + row * m_tileSize + m_tileSize / 2;
     
     spawnRobot(type, px, py);
 }
@@ -130,7 +130,7 @@ void Scene_Play::spawnRobotRow(int type, int row) {
 void Scene_Play::spawnPlant(float x, float y) {
     Entity* plant = m_entityManager.create("Plant");
     plant->spriteComponent = new Component_Sprite(m_gameData->tulipTexture);
-    plant->transformComponent = new Component_Transform(sf::Vector2f(x, y), sf::Vector2f(2.0f, 2.0f), 0.0f); 
+    plant->transformComponent = new Component_Transform(sf::Vector2f(x, y), sf::Vector2f(2.0f, 2.0f), 0.0f, Origin::Center); 
     plant->hitBoxComponent = new Component_HitBox(sf::Vector2f(40.0f, 40.0f));
 }
 
@@ -158,7 +158,7 @@ void Scene_Play::spawnRobot(int type, float x, float y) {
     robot->spriteComponent = new Component_Sprite(robotTex);
     
 // on reduit a fond l'image ia et on rmonte legerement pr centrer
-    robot->transformComponent = new Component_Transform(sf::Vector2f(x, y - 10.0f), sf::Vector2f(0.04f, 0.04f), 0.0f);
+    robot->transformComponent = new Component_Transform(sf::Vector2f(x, y), sf::Vector2f(0.04f, 0.04f), 0.0f, Origin::Center);
     robot->transformComponent->velocity = sf::Vector2f(-speed, 0.0f);
     robot->healthComponent = new Component_Health(hp);
     
@@ -172,7 +172,7 @@ void spawnProjectile(EntityManager& entityManager, sf::Vector2f pos) {
     projectile->shapeComponent = new Component_Shape(ShapeType::Circle, sf::Vector2f(10.0f, 10.0f)); 
     
  // cale sur le centre du pot d la tulipe
-    projectile->transformComponent = new Component_Transform(sf::Vector2f(pos.x + 40.0f, pos.y + 20.0f), sf::Vector2f(1.0f, 1.0f), 0.0f);
+    projectile->transformComponent = new Component_Transform(sf::Vector2f(pos.x, pos.y), sf::Vector2f(1.0f, 1.0f), 0.0f, Origin::Center);
     projectile->transformComponent->velocity = sf::Vector2f(3.0f, 0.0f);
     projectile->hitBoxComponent = new Component_HitBox(sf::Vector2f(10.0f, 10.0f));
 }
