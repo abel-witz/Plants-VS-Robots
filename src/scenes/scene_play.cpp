@@ -31,7 +31,7 @@ void Scene_Play::loadLevel() {
     std::vector<std::pair<int, int>> plantsToSpawn;
 
  //lecture du ficher .txt du nivo
-    std::string levelPath = "../assets/levels/level" + std::to_string(m_gameData->currentLevel) + ".txt";
+    std::string levelPath = "assets/levels/level" + std::to_string(m_gameData->currentLevel) + ".txt";
     std::ifstream file(levelPath);
     
     if (!file.is_open()) {

@@ -8,9 +8,11 @@ bool isMarkedForDeletion(Entity* entity) {
 }
 
 void EntityManager::update() {
+    std::vector<Entity*> deleteFromMemory;
+
     for (Entity* e : m_entities) {
         if (e != nullptr && !e->isActive()) {
-            delete e;
+            deleteFromMemory.push_back(e);
         }
     }
     
@@ -18,6 +20,11 @@ void EntityManager::update() {
     for (auto& pair : m_entityMap) {
         pair.second.erase(std::remove_if(pair.second.begin(), pair.second.end(), isMarkedForDeletion), pair.second.end());
     }
+
+    for (Entity* e : deleteFromMemory) {
+        delete e;
+    }
+    deleteFromMemory.clear();
 
     for (Entity* e : m_toAdd) {
         m_entities.push_back(e);
