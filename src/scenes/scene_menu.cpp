@@ -12,14 +12,14 @@ Scene_Menu::Scene_Menu(GameData* gameData) : Scene(gameData) {
 
 // le bg en 1280x720
     Entity* m_background = m_entityManager.create("Background");
-    m_background->colorComponent = new Component_Color(sf::Color(255, 255, 255));
+    m_background->colorComponent = new Component_Color(sf::Color(20, 20, 20));
     m_background->transformComponent = new Component_Transform(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1.0f, 1.0f), 0.0f);
     m_background->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(1280.0f, 720.0f));
 
 // le titre centrer a 640
     m_title = m_entityManager.create("Text");
     m_textBounds = getTextSize("PLANTS VS ROBOTS", font, 48);
-    m_title->colorComponent = new Component_Color(sf::Color::Black);
+    m_title->colorComponent = new Component_Color(sf::Color(200,200,200));
     m_title->textComponent = new Component_Text(font, "PLANTS VS ROBOTS", 48);
     m_title->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 150.f), // on descend le titre a 150 pr pa kil soit tt collé en haut //
@@ -27,7 +27,7 @@ Scene_Menu::Scene_Menu(GameData* gameData) : Scene(gameData) {
 
 // la ptite tulipe qui tourne autour (ca bouge tou seul vu ke ta linker sa pos sur le titre)
     Entity* tulip = m_entityManager.create("Dynamic");
-    tulip->colorComponent = new Component_Color(sf::Color::White);
+    tulip->colorComponent = new Component_Color(sf::Color(200,200,200));
     tulip->transformComponent = new Component_Transform(sf::Vector2f(m_title->transformComponent->position.x-m_textBounds.size.x/2-32.0f-5.0f, m_title->transformComponent->position.y-m_textBounds.size.y/2-32.0f-5.0f), sf::Vector2f(2.0f, 2.0f), 0.0f);
     tulip->spriteComponent = new Component_Sprite(tulipTexture);
 
@@ -37,14 +37,14 @@ Scene_Menu::Scene_Menu(GameData* gameData) : Scene(gameData) {
 
 // bouton level
     m_playButton = m_entityManager.create("Button");
-    m_playButton->colorComponent = new Component_Color(sf::Color::Green);
+    m_playButton->colorComponent = new Component_Color(sf::Color(34, 139, 34));
     m_playButton->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 300.f), // centrer //
         sf::Vector2f(1.1f, 1.3f), 0.0f, Origin::Center);
     m_playButton->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(playBounds.size.x, playBounds.size.y));
 
     Entity* playLabel = m_entityManager.create("Label");
-    playLabel->colorComponent = new Component_Color(sf::Color::Black);
+    playLabel->colorComponent = new Component_Color(sf::Color(200,200,200));
     playLabel->textComponent = new Component_Text(font, "Levels", 40);
     playLabel->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 300.f),
@@ -52,14 +52,14 @@ Scene_Menu::Scene_Menu(GameData* gameData) : Scene(gameData) {
 
 // bouton shop
     m_shopButton = m_entityManager.create("Button");
-    m_shopButton->colorComponent = new Component_Color(sf::Color::Green);
+    m_shopButton->colorComponent = new Component_Color(sf::Color(34, 139, 34));
     m_shopButton->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 400.f), // on espace de 100 px en y
         sf::Vector2f(1.1f, 1.3f), 0.0f, Origin::Center);
     m_shopButton->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(shopBounds.size.x, shopBounds.size.y));
 
     Entity* shopLabel = m_entityManager.create("Label");
-    shopLabel->colorComponent = new Component_Color(sf::Color::Black);
+    shopLabel->colorComponent = new Component_Color(sf::Color(200,200,200));
     shopLabel->textComponent = new Component_Text(font, "Shop", 40);
     shopLabel->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 400.f),
@@ -67,14 +67,14 @@ Scene_Menu::Scene_Menu(GameData* gameData) : Scene(gameData) {
 
 // bouton quit
     m_quitButton = m_entityManager.create("Button");
-    m_quitButton->colorComponent = new Component_Color(sf::Color::Green);
+    m_quitButton->colorComponent = new Component_Color(sf::Color(34, 139, 34));
     m_quitButton->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 500.f), // 100px plus ba //
         sf::Vector2f(1.1f, 1.3f), 0.0f, Origin::Center);
     m_quitButton->shapeComponent = new Component_Shape(ShapeType::Rectangle, sf::Vector2f(quitBounds.size.x, quitBounds.size.y));
 
     Entity* quitLabel = m_entityManager.create("Label");
-    quitLabel->colorComponent = new Component_Color(sf::Color::Black);
+    quitLabel->colorComponent = new Component_Color(sf::Color(200,200,200));
     quitLabel->textComponent = new Component_Text(font, "Quit", 40);
     quitLabel->transformComponent = new Component_Transform(
         sf::Vector2f(640.f, 500.f),
